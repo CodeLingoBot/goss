@@ -201,7 +201,7 @@ func LookupAAAA(host string, server string, c *dns.Client, m *dns.Msg) (addrs []
 	return
 }
 
-// CNAME record lookup
+// LookupCNAME record lookup
 func LookupCNAME(host string, server string, c *dns.Client, m *dns.Msg) (addrs []string, err error) {
 	m.SetQuestion(dns.Fqdn(host), dns.TypeCNAME)
 	r, _, err := c.Exchange(m, net.JoinHostPort(server, "53"))
@@ -218,7 +218,7 @@ func LookupCNAME(host string, server string, c *dns.Client, m *dns.Msg) (addrs [
 	return
 }
 
-// MX record lookup
+// LookupMX record lookup
 func LookupMX(host string, server string, c *dns.Client, m *dns.Msg) (addrs []string, err error) {
 	m.SetQuestion(dns.Fqdn(host), dns.TypeMX)
 	r, _, err := c.Exchange(m, net.JoinHostPort(server, "53"))
@@ -236,7 +236,7 @@ func LookupMX(host string, server string, c *dns.Client, m *dns.Msg) (addrs []st
 	return
 }
 
-// NS record lookup
+// LookupNS record lookup
 func LookupNS(host string, server string, c *dns.Client, m *dns.Msg) (addrs []string, err error) {
 	m.SetQuestion(dns.Fqdn(host), dns.TypeNS)
 	r, _, err := c.Exchange(m, net.JoinHostPort(server, "53"))
@@ -253,7 +253,7 @@ func LookupNS(host string, server string, c *dns.Client, m *dns.Msg) (addrs []st
 	return
 }
 
-// SRV record lookup
+// LookupSRV record lookup
 func LookupSRV(host string, server string, c *dns.Client, m *dns.Msg) (addrs []string, err error) {
 	m.SetQuestion(dns.Fqdn(host), dns.TypeSRV)
 	r, _, err := c.Exchange(m, net.JoinHostPort(server, "53"))
@@ -274,7 +274,7 @@ func LookupSRV(host string, server string, c *dns.Client, m *dns.Msg) (addrs []s
 	return
 }
 
-// TXT record lookup
+// LookupTXT record lookup
 func LookupTXT(host string, server string, c *dns.Client, m *dns.Msg) (addrs []string, err error) {
 	m.SetQuestion(dns.Fqdn(host), dns.TypeTXT)
 	r, _, err := c.Exchange(m, net.JoinHostPort(server, "53"))
@@ -291,7 +291,7 @@ func LookupTXT(host string, server string, c *dns.Client, m *dns.Msg) (addrs []s
 	return
 }
 
-// PTR record lookup
+// LookupPTR record lookup
 func LookupPTR(addr string, server string, c *dns.Client, m *dns.Msg) (name []string, err error) {
 
 	reverse, err := dns.ReverseAddr(addr)

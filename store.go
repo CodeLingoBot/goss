@@ -52,7 +52,7 @@ func getStoreFormatFromData(data []byte) int {
 	return 0
 }
 
-// Reads json file returning GossConfig
+// ReadJSON reads json file returning GossConfig
 func ReadJSON(filePath string) GossConfig {
 	file, err := ioutil.ReadFile(filePath)
 	if err != nil {
@@ -92,7 +92,7 @@ func varsFromFile(varsFile string) (map[string]interface{}, error) {
 	return vars, nil
 }
 
-// Reads json byte array returning GossConfig
+// ReadJSONData reads json byte array returning GossConfig
 func ReadJSONData(data []byte, detectFormat bool) GossConfig {
 	if TemplateFilter != nil {
 		data = TemplateFilter(data)
@@ -115,7 +115,7 @@ func ReadJSONData(data []byte, detectFormat bool) GossConfig {
 	return *gossConfig
 }
 
-// Reads json file recursively returning string
+// RenderJSON reads json file recursively returning string
 func RenderJSON(c *cli.Context) string {
 	filePath := c.GlobalString("gossfile")
 	varsFile := c.GlobalString("vars")
